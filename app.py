@@ -47,3 +47,13 @@ if st.button('확인', disabled=st.session_state.done):
             save_best('best.txt', tries)
             st.session_state.msg += ' 🎉 최고 기록 갱신!'
             st.rerun()
+
+# ⑤ 결과 보여주기
+st.info(st.session_state.msg)
+st.write(f'시도 횟수 : {st.session_state.tries}번')
+
+if st.session_state.done:
+    st.balloons()
+    if st.button('새 게임'):
+        new_game()
+        st.rerun()
